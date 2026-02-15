@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="container">
           <div className="row align-items-center gy-5">
-            <div className="col-12 col-lg-7">
+            <div className="col-12 col-lg-7 order-2 order-lg-1">
               <h1
                 className="hero-title"
                 data-aos="fade-up"
@@ -59,19 +59,22 @@ export default function Hero() {
                 <a className="btn btn-primary btn-lg" href={hero.cvUrl || "/ziad-murad-cv.txt"} download>
                   {hero.primaryCta}
                 </a>
-                <a className="btn btn-outline-light btn-lg" href="#contact">
-                  {hero.secondaryCta}
-                </a>
               </div>
             </div>
             <div
-              className="col-12 col-lg-5 text-center"
+              className="col-12 col-lg-5 text-center order-1 order-lg-2"
               data-aos="fade-left"
               data-aos-delay="300"
               data-aos-duration="1200">
               <div className="hero-image">
                 <div className="avatar-wrapper">
-                  <div className="avatar">{hero.avatar}</div>
+                  <div className="avatar">
+                    {hero.imageUrl ? (
+                      <img src={hero.imageUrl} alt="Ziad Murad" className="avatar-image" />
+                    ) : (
+                      hero.avatar
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ const imageModules = import.meta.glob("./assets/*.jpeg", {
   eager: true,
   import: "default",
 });
+import ziadImage from "./assets/ziad.png";
 
 const galleryImages = Object.entries(imageModules)
   .sort(([a], [b]) =>
@@ -42,6 +43,7 @@ export const defaultContent = {
     secondaryCta: "Book Consultation",
     cvUrl: "/ziad-murad-cv.txt",
     avatar: "ZM",
+    imageUrl: ziadImage,
   },
   about: {
     title: "About Me",
