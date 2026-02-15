@@ -46,7 +46,10 @@ export default function Hero() {
                 data-aos-duration="1000">
                 {hero.subtitle}
               </p>
-              <div className="hero-kpis" data-aos="fade-up" data-aos-delay="160">
+              <div
+                className="hero-kpis"
+                data-aos="fade-up"
+                data-aos-delay="160">
                 <span>13 Ventures</span>
                 <span>15+ Markets</span>
                 <span>1.3K+ Team</span>
@@ -56,7 +59,10 @@ export default function Hero() {
                 data-aos="fade-up"
                 data-aos-delay="200"
                 data-aos-duration="1000">
-                <a className="btn btn-primary btn-lg" href={hero.cvUrl || "/ziad-mohamed-cv.txt"} download>
+                <a
+                  className="btn btn-primary btn-lg"
+                  href={hero.cvUrl}
+                  download>
                   {hero.primaryCta}
                 </a>
               </div>
@@ -70,7 +76,11 @@ export default function Hero() {
                 <div className="avatar-wrapper">
                   <div className="avatar">
                     {hero.imageUrl ? (
-                      <img src={hero.imageUrl} alt="Ziad Mohamed" className="avatar-image" />
+                      <img
+                        src={hero.imageUrl}
+                        alt="Ziad Mohamed"
+                        className="avatar-image"
+                      />
                     ) : (
                       hero.avatar
                     )}
