@@ -15,12 +15,28 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import "./css/Footer.css";
-import { useSiteContent } from "../data/SiteContentContext";
+
+const footer = {
+  title: "Ziad Mohamed, CPA",
+  text: "Independent accounting consultant focused on clean books, compliant taxes, and clear financial decisions.",
+  linksTitle: "Quick Links",
+  links: [
+    { label: "Home", href: "#hero" },
+    { label: "About", href: "#about" },
+    { label: "Certificates", href: "#certificates" },
+    { label: "Contact", href: "#contact" },
+  ],
+  servicesTitle: "Services",
+  services: [
+    { label: "Bookkeeping", href: "#contact" },
+    { label: "Tax Filing", href: "#contact" },
+    { label: "Audit Support", href: "#contact" },
+    { label: "Reporting", href: "#contact" },
+  ],
+};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { content } = useSiteContent();
-  const { footer } = content;
   const linkIcons = {
     Home: <FaHome />,
     About: <FaAddressCard />,

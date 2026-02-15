@@ -2,13 +2,44 @@ import { useEffect, useMemo, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./css/About.css";
-import { useSiteContent } from "../data/SiteContentContext";
+
+const about = {
+  title: "General Accountant | IFRS Reporting | Tax Compliance",
+  subtitle: "IFRS | Tax & E-Invoicing | ERP & Excel",
+  paragraphs: [
+    "General Accountant with 3+ years of practical experience managing financial operations, reporting cycles, and compliance requirements across multiple business models. I focus on accuracy, consistency, and delivering clean financial data that supports better business decisions.",
+    "I prepare accurate monthly and annual financial statements, support full month-end closing activities, and ensure reporting quality is aligned with IFRS standards and internal control requirements.",
+    "Technical Proficiency: Advanced user of key ERP systems (Focus, Al-Mohtaseb) and advanced Microsoft Excel (dashboards, financial models) to drive process optimization and analytical efficiency.",
+    "Tax Expertise: Proven ability to handle VAT, payroll tax preparation, and strictly manage electronic invoicing (ETA compliance) in alignment with Egyptian Tax Authority regulations.",
+    "I am dedicated to achieving financial accuracy and enhancing business growth through effective analysis and adherence to global accounting best practices. Open to connecting with industry leaders and exploring challenging General Accountant roles where strong analytical and technical skills are paramount.",
+  ],
+  features: [
+    {
+      icon: "ACC",
+      title: "Financial Statements",
+      text: "Accurate monthly and annual financial reports with clear insights.",
+    },
+    {
+      icon: "TAX",
+      title: "Tax Compliance",
+      text: "VAT and tax filing support with complete documentation.",
+    },
+    {
+      icon: "AUD",
+      title: "Audit Readiness",
+      text: "Structured records and reconciliations for smooth audits.",
+    },
+  ],
+  achievements: [
+    { value: "180+", label: "Clients Served" },
+    { value: "99%", label: "On-Time Filings" },
+    { value: "3+", label: "Years Experience" },
+  ],
+};
 
 export default function About() {
-  const { content } = useSiteContent();
-  const { about } = content;
   const [isExpanded, setIsExpanded] = useState(false);
-  const paragraphs = about?.paragraphs || [];
+  const paragraphs = about.paragraphs || [];
   const leadParagraph = paragraphs[0] || "";
   const hasExtraContent = paragraphs.length > 3;
   const detailParagraphs = useMemo(
@@ -20,11 +51,11 @@ export default function About() {
   );
   const subtitleTags = useMemo(
     () =>
-      (about?.subtitle || "")
+      (about.subtitle || "")
         .split("|")
         .map((tag) => tag.trim())
         .filter(Boolean),
-    [about?.subtitle],
+    [],
   );
 
   useEffect(() => {

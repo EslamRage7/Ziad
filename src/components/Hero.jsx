@@ -1,11 +1,19 @@
 import { useEffect } from "react";
 import "./css/Hero.css";
-import { useSiteContent } from "../data/SiteContentContext";
+import ziadImage from "../data/assets/ziad.png";
+
+const hero = {
+  title: "Professional",
+  highlight: "Accounting Services",
+  subtitle:
+    "Ziad Mohamed is a certified accountant helping businesses with bookkeeping, tax compliance, financial reporting, and audit preparation.",
+  primaryCta: "Download CV",
+  cvUrl: "/CV-Ziad Mohammed-1.pdf",
+  avatar: "ZM",
+  imageUrl: ziadImage,
+};
 
 export default function Hero() {
-  const { content } = useSiteContent();
-  const { hero } = content;
-
   useEffect(() => {
     const handleMouseMove = (event) => {
       if (window.innerWidth < 992) return;

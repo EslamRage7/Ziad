@@ -3,11 +3,43 @@ import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./css/Certificates.css";
-import { useSiteContent } from "../data/SiteContentContext";
+
+const imageModules = import.meta.glob("../data/assets/*.jpeg", {
+  eager: true,
+  import: "default",
+});
+
+const certificateNames = [
+  "Al-Azhar University",
+  "Banque Misr- Summer Training",
+  "Banque Misr- Summer Training",
+  "Digital Marketing",
+  "Graduation Certificate",
+  "Microsoft Office ",
+  "Cambridge University",
+  "Cambridge University",
+  "Cambridge University",
+  "Cambridge University",
+  "Cambridge University",
+  "Cambridge University",
+  "Cambridge University",
+  "Edlal Certificate",
+  "Strategic Planning",
+  "ICDL",
+  "Excel track (Accounting Excel)",
+];
+
+const certificates = Object.entries(imageModules)
+  .sort(([a], [b]) =>
+    a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }),
+  )
+  .map(([, imageUrl], index) => ({
+    id: index + 1,
+    imageUrl,
+    title: certificateNames[index] || `Certificate ${index + 1}`,
+  }));
 
 export default function Certificates() {
-  const { content } = useSiteContent();
-  const { certificates } = content;
   const [activeIndex, setActiveIndex] = useState(0);
   const [zoomImage, setZoomImage] = useState("");
   const [lens, setLens] = useState({ x: 50, y: 50, visible: false });
@@ -19,12 +51,12 @@ export default function Certificates() {
   }, []);
 
   useEffect(() => {
-    if (!certificates?.length || isPaused) return undefined;
+    if (!certificates.length || isPaused) return undefined;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % certificates.length);
     }, 3500);
     return () => clearInterval(timer);
-  }, [certificates, isPaused]);
+  }, [isPaused]);
 
   useEffect(() => {
     if (!zoomImage) return undefined;
@@ -35,7 +67,7 @@ export default function Certificates() {
     return () => window.removeEventListener("keydown", closeOnEsc);
   }, [zoomImage]);
 
-  if (!certificates?.length) return null;
+  if (!certificates.length) return null;
 
   const prevSlide = () => {
     setActiveIndex(
@@ -133,7 +165,9 @@ export default function Certificates() {
             className="cert-stage"
             onClick={handleStageClick}
             onTouchStart={(event) => handleStageStart(event.touches[0].clientX)}
-            onTouchEnd={(event) => handleStageEnd(event.changedTouches[0].clientX)}
+            onTouchEnd={(event) =>
+              handleStageEnd(event.changedTouches[0].clientX)
+            }
             onMouseDown={(event) => handleStageStart(event.clientX)}
             onMouseUp={(event) => handleStageEnd(event.clientX)}>
             {certificates.map((item, index) => {
@@ -169,7 +203,7 @@ export default function Certificates() {
                         Certificate
                       </div>
                     )}
-                    <div className="cert-name-chip">{item.title || `Certificate ${index + 1}`}</div>
+                    <div className="cert-name-chip">{item.title}</div>
                   </div>
                 </article>
               );

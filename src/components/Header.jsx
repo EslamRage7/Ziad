@@ -2,7 +2,19 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./css/Header.css";
-import { useSiteContent } from "../data/SiteContentContext";
+
+const header = {
+  brandName: "Ziad Mohamed, IFRS",
+  brandIcon: "ZM",
+  nav: {
+    home: "Home",
+    about: "About",
+    experience: "Experience",
+    skills: "Services",
+    certificates: "Certificates",
+    contact: "Contact",
+  },
+};
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +22,6 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("hero");
   const navigate = useNavigate();
   const location = useLocation();
-  const { content } = useSiteContent();
-  const { header } = content;
   const navItems = useMemo(
     () => [
       { id: "hero", label: header.nav.home },
@@ -21,7 +31,7 @@ export default function Header() {
       { id: "certificates", label: header.nav.certificates },
       { id: "contact", label: header.nav.contact },
     ],
-    [header.nav],
+    [],
   );
 
   useEffect(() => {
@@ -33,7 +43,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll-spy: Track which section is in view
   useEffect(() => {
     if (location.pathname !== "/") {
       return undefined;
@@ -65,9 +74,7 @@ export default function Header() {
     };
   }, [location.pathname, navItems]);
 
-  // Close menu when route changes
   useEffect(() => {
-    // Using a timeout to defer setState call
     const timer = setTimeout(() => {
       setIsOpen(false);
     }, 0);

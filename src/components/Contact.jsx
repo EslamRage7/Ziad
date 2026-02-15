@@ -7,12 +7,37 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import "./css/Contact.css";
-import { useSiteContent } from "../data/SiteContentContext";
+
+const contact = {
+  title: "Get In Touch",
+  subtitle: "Need a reliable accountant for your business?",
+  phoneLabel: "Phone",
+  phone: "01066915248",
+  emailLabel: "Email",
+  email: "Ziadm9320@gmail.com",
+  addressLabel: "Location",
+  address: "Ashmon , Menoufia, Egypt",
+  socialTitle: "Social",
+  social: [
+    {
+      id: "linkedin",
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/ziad-mohamed-03992b240",
+    },
+    { id: "whatsapp", label: "WhatsApp", url: "https://wa.me/201066915248" },
+    {
+      id: "facebook",
+      label: "Facebook",
+      url: "https://www.facebook.com/share/1FPYF5ub4f/",
+    },
+  ],
+  cardTitle: "Free 20-minute consultation",
+  cardText:
+    "Share your accounting challenge and get a practical action plan for your next reporting cycle.",
+  cardCta: "Email Now",
+};
 
 export default function Contact() {
-  const { content } = useSiteContent();
-  const { contact } = content;
-
   const iconById = {
     linkedin: <FaLinkedin />,
     whatsapp: <FaWhatsapp />,
