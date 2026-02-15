@@ -21,9 +21,18 @@ export default function Preloader() {
 
   return (
     <div className={`preloader ${!isVisible ? "fade-out" : ""}`}>
+      <div className="preloader-orb preloader-orb-a"></div>
+      <div className="preloader-orb preloader-orb-b"></div>
       <div className="preloader-content">
-        <div className="preloader-logo">ZM</div>
+        <div className="preloader-logo-wrap">
+          <div className="preloader-ring ring-one"></div>
+          <div className="preloader-ring ring-two"></div>
+          <div className="preloader-logo">ZM</div>
+        </div>
         <div className="preloader-text">Ziad Murad, CPA</div>
+        <div className="preloader-shimmer">
+          <span></span>
+        </div>
         <div className="preloader-spinner">
           <div className="spinner-circle"></div>
           <div className="spinner-circle"></div>
