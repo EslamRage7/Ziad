@@ -1,4 +1,4 @@
-Ziad Murad, CPA
+Ziad Mohamed, CPA
 
 Professional Accountant
 Specialized in bookkeeping, tax compliance, financial reporting, and audit readiness.
@@ -9,5 +9,6 @@ Location: Kuwait City, Kuwait
 
 Note:
 Replace this file with your final PDF CV using the same name:
-public/ziad-murad-cv.pdf
+public/ziad-mohamed-cv.pdf
 Then update `cvUrl` in src/data/siteContent.js accordingly.
+

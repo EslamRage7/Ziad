@@ -11,6 +11,7 @@ export default function Certificates() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [zoomImage, setZoomImage] = useState("");
   const [lens, setLens] = useState({ x: 50, y: 50, visible: false });
+  const [isPaused, setIsPaused] = useState(false);
   const dragStartX = useRef(null);
 
   useEffect(() => {
@@ -18,12 +19,12 @@ export default function Certificates() {
   }, []);
 
   useEffect(() => {
-    if (!certificates?.length) return undefined;
+    if (!certificates?.length || isPaused) return undefined;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % certificates.length);
     }, 3500);
     return () => clearInterval(timer);
-  }, [certificates]);
+  }, [certificates, isPaused]);
 
   useEffect(() => {
     if (!zoomImage) return undefined;
@@ -116,7 +117,11 @@ export default function Certificates() {
             programs, and professional achievements.
           </p>
         </div>
-        <div className="cert-slider" data-aos="zoom-in-up">
+        <div
+          className="cert-slider"
+          data-aos="zoom-in-up"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}>
           <button
             className="cert-nav cert-nav-left"
             onClick={prevSlide}
@@ -164,6 +169,7 @@ export default function Certificates() {
                         Certificate
                       </div>
                     )}
+                    <div className="cert-name-chip">{item.title || `Certificate ${index + 1}`}</div>
                   </div>
                 </article>
               );

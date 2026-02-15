@@ -15,7 +15,7 @@ export default function Skills() {
   return (
     <section id="skills" className="skills">
       <div className="container py-5">
-        <div className="text-center mb-5">
+        <div className="text-center mb-4">
           <h2 className="section-title" data-aos="fade-up">
             {skillsSection?.title}
           </h2>
@@ -24,22 +24,42 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="skills-grid">
-          {(skills || []).map((skill, index) => (
-            <article
-              key={skill.id}
-              className="skill-card"
-              data-aos="zoom-in-up"
-              data-aos-delay={index * 70}>
-              <div className="skill-glow"></div>
-              <div className="skill-top">
-                <span className="skill-icon">{skill.icon}</span>
-                <span className="skill-level">{skill.level}</span>
-              </div>
-              <h3>{skill.name}</h3>
-              <p>{skill.description}</p>
-            </article>
-          ))}
+        <div className="skills-stage" data-aos="zoom-in-up">
+          <div className="skills-marquee">
+            <div className="skills-track">
+              {(skills || []).map((skill) => (
+                <span className="skill-pill" key={`pill-a-${skill.id}`}>
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+            <div className="skills-track" aria-hidden="true">
+              {(skills || []).map((skill) => (
+                <span className="skill-pill" key={`pill-b-${skill.id}`}>
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="skills-grid">
+            {(skills || []).map((skill, index) => (
+              <article
+                key={skill.id}
+                className="skill-card"
+                data-aos="fade-up"
+                data-aos-delay={index * 45}>
+                <div className="skill-glow"></div>
+                <div className="skill-top">
+                  <span className="skill-icon">{skill.icon}</span>
+                  <span className="skill-level">{skill.level}</span>
+                </div>
+                <h3>{skill.name}</h3>
+                <p>{skill.description}</p>
+                {skill.source && <span className="skill-source">{skill.source}</span>}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

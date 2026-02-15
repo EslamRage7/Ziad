@@ -56,7 +56,7 @@ export default function Hero() {
                 data-aos="fade-up"
                 data-aos-delay="200"
                 data-aos-duration="1000">
-                <a className="btn btn-primary btn-lg" href={hero.cvUrl || "/ziad-murad-cv.txt"} download>
+                <a className="btn btn-primary btn-lg" href={hero.cvUrl || "/ziad-mohamed-cv.txt"} download>
                   {hero.primaryCta}
                 </a>
               </div>
@@ -70,7 +70,7 @@ export default function Hero() {
                 <div className="avatar-wrapper">
                   <div className="avatar">
                     {hero.imageUrl ? (
-                      <img src={hero.imageUrl} alt="Ziad Murad" className="avatar-image" />
+                      <img src={hero.imageUrl} alt="Ziad Mohamed" className="avatar-image" />
                     ) : (
                       hero.avatar
                     )}

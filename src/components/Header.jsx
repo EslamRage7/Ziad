@@ -16,6 +16,7 @@ export default function Header() {
     () => [
       { id: "hero", label: header.nav.home },
       { id: "about", label: header.nav.about },
+      { id: "experience", label: header.nav.experience },
       { id: "skills", label: header.nav.skills },
       { id: "certificates", label: header.nav.certificates },
       { id: "contact", label: header.nav.contact },
