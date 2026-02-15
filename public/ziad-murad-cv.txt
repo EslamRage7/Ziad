@@ -1,0 +1,13 @@
+Ziad Murad, CPA
+
+Professional Accountant
+Specialized in bookkeeping, tax compliance, financial reporting, and audit readiness.
+
+Phone: +965 5555 1200
+Email: ziad.murad.accounting@gmail.com
+Location: Kuwait City, Kuwait
+
+Note:
+Replace this file with your final PDF CV using the same name:
+public/ziad-murad-cv.pdf
+Then update `cvUrl` in src/data/siteContent.js accordingly.
